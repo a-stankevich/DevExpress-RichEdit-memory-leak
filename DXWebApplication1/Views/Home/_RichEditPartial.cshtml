@@ -1,0 +1,10 @@
+@Html.DevExpress().RichEdit(settings =>
+{
+    settings.Name = "RichEditTest";
+
+    settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+    settings.Height = System.Web.UI.WebControls.Unit.Pixel(900);
+
+    settings.ClientSideEvents.DocumentFormatted = "documentLoaded()";
+
+}).Open(Guid.NewGuid().ToString(), () => File.ReadAllBytes(Server.MapPath(@"~\Documents\BulletsAndNumbering.rtf"))).GetHtml()

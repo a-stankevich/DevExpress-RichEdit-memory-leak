@@ -1,0 +1,35 @@
+<script>
+    function documentLoaded() {
+        setTimeout(() => {
+            console.log(RichEditTest.stateObject.dxwsid);
+            document.cookies = "";
+            location.reload();
+        }, 200);
+    }
+</script>
+
+@using (Html.BeginForm("ExportFile", "Home"))
+{
+    @Html.Action("RichEditPartial")
+    @*@Html.DevExpress().Button(s =>
+    {
+        s.Name = "Start";
+        s.Text = "Start Posting Changes";
+        s.UseSubmitBehavior = false;
+        s.ClientSideEvents.Click = "StartPostingChanges";
+    }).GetHtml()
+    @Html.DevExpress().Button(s =>
+    {
+        s.Name = "Save";
+        s.Text = "Save Document";
+        s.UseSubmitBehavior = false;
+        s.ClientSideEvents.Click = "onSaveDocumentClick";
+    }).GetHtml()
+    @Html.DevExpress().Button(s =>
+    {
+        s.Name = "Export";
+        s.Text = "Export to PDF";
+        s.Images.Image.IconID = "export_exporttopdf_16x16";
+        s.UseSubmitBehavior = true;
+    }).GetHtml()*@
+}
